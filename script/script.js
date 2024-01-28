@@ -21,12 +21,10 @@ const hamburgerMenu = () => {
   if (visibility === 'false') {
     NAV_CONTAINER_ELEMENT.setAttribute('data-visible', true);
     HAMBURGER_MENU_ELEMENT.setAttribute('aria-expanded', true);
-    IMG_SRC_ELEMENT.src = 'img/x.svg';
     BODY_ELEMENT.style.overflow = 'hidden';
   } else {
     NAV_CONTAINER_ELEMENT.setAttribute('data-visible', false);
     HAMBURGER_MENU_ELEMENT.setAttribute('aria-expanded', false);
-    IMG_SRC_ELEMENT.src = 'img/menu.svg';
     BODY_ELEMENT.style.overflow = 'auto';
   }
 };
