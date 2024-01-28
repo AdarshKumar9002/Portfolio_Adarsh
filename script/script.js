@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/extensions
-import info from './local.js';
+import {info,errorMsg} from './local.js';
 
 // Home page
 const HAMBURGER_MENU_ELEMENT = document.getElementById('btn-menu');
@@ -33,7 +33,7 @@ const hamburgerMenu = () => {
 HAMBURGER_MENU_ELEMENT.addEventListener('click', hamburgerMenu);
 
 function heroInfo(name, degination) {
-  if (document.URL.includes('index')) {
+  if (!(document.URL.includes('contact', 'project','about'))) {
     const potfolioers_name = document.getElementById('heroImage__text--name');
     const potfolioers_degination = document.getElementById(
       'heroImage__text--degination',
@@ -45,13 +45,11 @@ function heroInfo(name, degination) {
 }
 
 heroInfo(info.name, info.degination);
-
-let fullName = '';
 let message = '';
 
 const checkForSpecialChar = (fieldValue) => {
   if (!(/^[a-z, A-Z]+$/.test(fieldValue))) {
-    message = "Enter a valid Name. ";
+    message = errorMsg.validName;
     return message;
   }
   return 0;
@@ -62,11 +60,11 @@ const firstNameValidation = () => {
   const firstName = FIRST_NAME_ELEMENT.value.trim();
 
   if (firstName.length <= 1 || firstName.length > 20) {
-    message = "First Name should be between 2 and 20 characters. ";
+    message = errorMsg.firstNamelength;
     return message;
   }
   if (firstName.trim() === true) {
-    message = "first name should not have space in it";
+    message = errorMsg.firstNameContainSpace;;
     return message;
 }
   if(checkForSpecialChar(firstName)) {
@@ -78,26 +76,17 @@ const lastNameValidation = () => {
   const lastName = LAST_NAME_ELEMENT.value.trim();
 
   if (lastName.length <= 1 || lastName.length > 20) {
-    message = "Last Name should be between 2 and 20 characters. ";
+    message = errorMsg.lastNamelength;
     return message;
   }
   if (/\s/.test(lastName)) {
-    message = "Last Name should not Contain space. ";
+    message = errorMsg.lastNameContainSpace;
     return message;
   }
   if(checkForSpecialChar(lastName)) {
     return message;
   }
   return lastName;
-};
-
-// eslint-disable-next-line no-unused-vars
-const getFullName = () => {
-  if(!message) {
-    fullName = `${firstNameValidation()} ${lastNameValidation()}`;
-  return fullName;
-  }
-  return message;  
 };
 
 const nameValidation = () => {  
@@ -111,11 +100,12 @@ const emailValidation = () => {
   const email = EMAIL_ELEMENT.value.trim();
 
   if (/\s/.test(email)) {
-    message = "email should not Contain space. ";
+    message = errorMsg.emailContainSpace;
     return message;
   }
-  if(email.includes("@") && email.includes('.')) {
-    message = "Enter a valid email id. ";
+  if(!(email.includes("@")) || !(email.includes('.'))) {
+    message = errorMsg.validEmail;
+    return message;
   }
   return email;
 };
@@ -125,21 +115,21 @@ const emailValidation = () => {
 const numberVaidation = () => {
   const number = PHONR_NUM_ELEMENT.value.trim();
   if (number.length < 10 || number.length > 10) {
-    message = "Enter a valid phone number. ";
+    message = errorMsg.validNumber;
     return message;
   }
   if (/\s/.test(number)) {
-    message = "number should not Contain space. ";
+    message = errorMsg.numberContainSpace;
     return message;
   }
   if (!(/^[0-9]+$/.test(number))) {
-    message = "Enter a valid phone number. ";
+    message = errorMsg.validNumber;
     return message;
   }
   return number;
 };
 
-// message 
+// message and subject 
 
 const subjectValidation = () => {
   const subject = SUBJECT_ELEMENT.value.trim();
@@ -164,7 +154,6 @@ const formValidation = (event) => {
   }
 };
 
-if (document.URL.includes('contact')) { 
 SUBMIT_BUTTON_ELEMENT.addEventListener('click', formValidation);
-}
+
 
