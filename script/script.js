@@ -1,9 +1,8 @@
 // eslint-disable-next-line import/extensions
-import {info,errorMsg} from './local.js';
+import { info, errorMsg } from './local.js';
 
 // Home page
 const HAMBURGER_MENU_ELEMENT = document.getElementById('btn-menu');
-const IMG_SRC_ELEMENT = document.getElementById('imgSrc');
 const NAV_CONTAINER_ELEMENT = document.querySelector('.nav__container');
 const BODY_ELEMENT = document.querySelector('body');
 
@@ -21,17 +20,50 @@ const hamburgerMenu = () => {
   if (visibility === 'false') {
     NAV_CONTAINER_ELEMENT.setAttribute('data-visible', true);
     HAMBURGER_MENU_ELEMENT.setAttribute('aria-expanded', true);
+    HAMBURGER_MENU_ELEMENT.innerHTML = `
+    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="none"
+    stroke-width="2.3"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class="lucide lucide-menu"
+  >
+    <line x1="4" x2="15" y1="6" y2="18" />
+    <line x1="4" x2="15" y1="18" y2="6" />
+    </svg>
+  `;
     BODY_ELEMENT.style.overflow = 'hidden';
   } else {
     NAV_CONTAINER_ELEMENT.setAttribute('data-visible', false);
     HAMBURGER_MENU_ELEMENT.setAttribute('aria-expanded', false);
+    HAMBURGER_MENU_ELEMENT.innerHTML = `      <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="none"
+    stroke-width="2.3"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class="lucide lucide-menu"
+  >
+    <line x1="4" x2="20" y1="12" y2="12" />
+    <line x1="4" x2="20" y1="6" y2="6" />
+    <line x1="4" x2="20" y1="18" y2="18" />
+  </svg>`;
     BODY_ELEMENT.style.overflow = 'auto';
   }
 };
 HAMBURGER_MENU_ELEMENT.addEventListener('click', hamburgerMenu);
 
 function heroInfo(name, degination) {
-  if (!(document.URL.includes('contact', 'project','about'))) {
+  if (!document.URL.includes('contact', 'project', 'about')) {
     const potfolioers_name = document.getElementById('heroImage__text--name');
     const potfolioers_degination = document.getElementById(
       'heroImage__text--degination',
@@ -46,13 +78,12 @@ heroInfo(info.name, info.degination);
 let message = '';
 
 const checkForSpecialChar = (fieldValue) => {
-  if (!(/^[a-z, A-Z]+$/.test(fieldValue))) {
+  if (!/^[a-z, A-Z]+$/.test(fieldValue)) {
     message = errorMsg.validName;
     return message;
   }
   return 0;
 };
-
 
 const firstNameValidation = () => {
   const firstName = FIRST_NAME_ELEMENT.value.trim();
@@ -62,10 +93,10 @@ const firstNameValidation = () => {
     return message;
   }
   if (firstName.trim() === true) {
-    message = errorMsg.firstNameContainSpace;;
+    message = errorMsg.firstNameContainSpace;
     return message;
-}
-  if(checkForSpecialChar(firstName)) {
+  }
+  if (checkForSpecialChar(firstName)) {
     return message;
   }
   return firstName;
@@ -81,18 +112,18 @@ const lastNameValidation = () => {
     message = errorMsg.lastNameContainSpace;
     return message;
   }
-  if(checkForSpecialChar(lastName)) {
+  if (checkForSpecialChar(lastName)) {
     return message;
   }
   return lastName;
 };
 
-const nameValidation = () => {  
-    firstNameValidation();
-    lastNameValidation();
+const nameValidation = () => {
+  firstNameValidation();
+  lastNameValidation();
 };
 
-// E-mail validation 
+// E-mail validation
 
 const emailValidation = () => {
   const email = EMAIL_ELEMENT.value.trim();
@@ -101,7 +132,7 @@ const emailValidation = () => {
     message = errorMsg.emailContainSpace;
     return message;
   }
-  if(!(email.includes("@")) || !(email.includes('.'))) {
+  if (!email.includes('@') || !email.includes('.')) {
     message = errorMsg.validEmail;
     return message;
   }
@@ -120,14 +151,14 @@ const numberVaidation = () => {
     message = errorMsg.numberContainSpace;
     return message;
   }
-  if (!(/^[0-9]+$/.test(number))) {
+  if (!/^[0-9]+$/.test(number)) {
     message = errorMsg.validNumber;
     return message;
   }
   return number;
 };
 
-// message and subject 
+// message and subject
 
 const subjectValidation = () => {
   const subject = SUBJECT_ELEMENT.value.trim();
@@ -140,18 +171,16 @@ const messageValidation = () => {
 const showOutput = () => {
   const OUTPUT_ELEMENT = document.getElementById('output');
   OUTPUT_ELEMENT.innerHTML = `<p>First Name: ${firstNameValidation()}</p>
-  <p>Last Name: ${lastNameValidation()}</p> <p>Email: ${emailValidation()}</p> <p>Phone number: ${(numberVaidation())}</p> <p> Subject: ${(subjectValidation())}</p> <p> Message: ${(messageValidation())}</p>`;
+  <p>Last Name: ${lastNameValidation()}</p> <p>Email: ${emailValidation()}</p> <p>Phone number: ${numberVaidation()}</p> <p> Subject: ${subjectValidation()}</p> <p> Message: ${messageValidation()}</p>`;
 };
 const formValidation = (event) => {
   if (document.URL.includes('contact')) {
-  event.preventDefault();
-  nameValidation();
-  emailValidation();
-  numberVaidation();
-  showOutput();
+    event.preventDefault();
+    nameValidation();
+    emailValidation();
+    numberVaidation();
+    showOutput();
   }
 };
 
 SUBMIT_BUTTON_ELEMENT.addEventListener('click', formValidation);
-
-
