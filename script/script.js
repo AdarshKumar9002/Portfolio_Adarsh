@@ -164,6 +164,7 @@ const formValidation = (event) => {
   }
 };
 
+if (document.URL.includes('contact')) { 
 SUBMIT_BUTTON_ELEMENT.addEventListener('click', formValidation);
-
+}
 
