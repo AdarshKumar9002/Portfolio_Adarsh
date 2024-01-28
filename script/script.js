@@ -1,9 +1,5 @@
 // eslint-disable-next-line import/extensions
-const info = {
-    name: "Adarsh Kumar",
-    degination: "Front-End Devloper",
-    description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
-};
+import info from './local.js';
 
 // Home page
 const HAMBURGER_MENU_ELEMENT = document.getElementById('btn-menu');
