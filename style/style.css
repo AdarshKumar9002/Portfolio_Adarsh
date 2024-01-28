@@ -372,7 +372,7 @@ footer p {
 .myEmail {
   margin-bottom: 1em;
 }
-.myEmail a,p {
+.myEmail a,.myEmail p {
   color: var(--secondyColor);
   font-size: 1.4rem;
 }
@@ -578,7 +578,7 @@ textarea {
   }
   /* CSS for Contact page */
 
-  .myEmail a,p {
+  .myEmail a,.myEmail p {
   font-size: 2rem;
 }
 label {
