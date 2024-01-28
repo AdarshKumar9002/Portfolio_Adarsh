@@ -309,6 +309,9 @@ footer p {
 .headerPostion--static {
   position: static;
 }
+.headerPostion--static .lucide {
+  stroke: var(--primaryColor);
+}
 
 /* CSS for about page */
 

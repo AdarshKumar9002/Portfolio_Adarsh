@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projects | Adarsh Kumar</title>
+    <title>Contact | Adarsh Kumar</title>
     <link rel="icon" type="image/x-icon" href="./img/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,13 +18,29 @@
     <header class="headerPostion--static">
       <a href="index.html"><h1>AK</h1></a>
       <button
-        id="btn-menu"
-        class="hamburgerMenu"
-        aria-expanded="false"
-        aria-controls="nav__container"
+      id="btn-menu"
+      class="hamburgerMenu"
+      aria-expanded="false"
+      aria-controls="nav__container"
+      aria-label="menu"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="none"
+        stroke-width="2.3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-menu"
       >
-        <img id="imgSrc" src="img/menu.svg" alt="menu button" />
-      </button>
+        <line x1="4" x2="20" y1="12" y2="12" />
+        <line x1="4" x2="20" y1="6" y2="6" />
+        <line x1="4" x2="20" y1="18" y2="18" />
+      </svg>
+    </button>
       <nav class="nav__container" data-visible="false">
         <ul>
           <li><a href="index.html">HOME</a></li>
@@ -35,84 +51,70 @@
       </nav>
     </header>
     <main>
-      <section class="projects">
-        <a href="project.html">
-          <h3>Project</h3>
-        </a>
-        <div class="projectGallary project__flex--wrap">
-          <div>
-            <a href="https://projects-page-portfolio.netlify.app">
-              <img src="img/project_image.png" alt="Project1" />
-            </a>
-            <a href="https://projects-page-portfolio.netlify.app">
-              <h4>Project1 Name</h4>
-              <p>Project Info</p>
-            </a>
-          </div>
-          <div>
-            <a href="https://projects-page-portfolio.netlify.app">
-              <img src="img/project_image.png" alt="Project2" />
-            </a>
-            <a href="https://projects-page-portfolio.netlify.app">
-              <h4>Project2 Name</h4>
-              <p>Project Info</p>
-            </a>
-          </div>
-          <div>
-            <a href="https://projects-page-portfolio.netlify.app">
-              <img src="img/project_image.png" alt="Project3" />
-            </a>
-            <a href="https://projects-page-portfolio.netlify.app">
-              <h4>Project3 Name</h4>
-              <p>Project Info</p>
-            </a>
-          </div>
-          <div>
-            <a href="https://projects-page-portfolio.netlify.app">
-              <img src="img/project_image.png" alt="Project4" />
-            </a>
-            <a href="https://projects-page-portfolio.netlify.app">
-              <h4>Project4 Name</h4>
-              <p>Project Info</p>
-            </a>
-          </div>
-          <div>
-            <a href="https://projects-page-portfolio.netlify.app">
-              <img src="img/project_image.png" alt="Project1" />
-            </a>
-            <a href="https://projects-page-portfolio.netlify.app">
-              <h4>Project1 Name</h4>
-              <p>Project Info</p>
-            </a>
-          </div>
-          <div>
-            <a href="https://projects-page-portfolio.netlify.app">
-              <img src="img/project_image.png" alt="Project2" />
-            </a>
-            <a href="https://projects-page-portfolio.netlify.app">
-              <h4>Project2 Name</h4>
-              <p>Project Info</p>
-            </a>
-          </div>
-          <div>
-            <a href="https://projects-page-portfolio.netlify.app">
-              <img src="img/project_image.png" alt="Project3" />
-            </a>
-            <a href="https://projects-page-portfolio.netlify.app">
-              <h4>Project3 Name</h4>
-              <p>Project Info</p>
-            </a>
-          </div>
-          <div>
-            <a href="https://projects-page-portfolio.netlify.app">
-              <img src="img/project_image.png" alt="Project4" />
-            </a>
-            <a href="https://projects-page-portfolio.netlify.app">
-              <h4>Project4 Name</h4>
-              <p>Project Info</p>
-            </a>
-          </div>
+      <section class="contact__form">
+        <h2>Contact me</h2>
+
+        <div class="myEmail">
+          <p>Email</p>
+          <a href="mailto:sampleemail@gmail.com">sampleemail@gmail.com</a>
         </div>
+        <hr />
+        <form action="">
+          <h3>Send me an email</h3>
+          <div class="contact__form__container">
+            <div>
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" placeholder="jhon" required />
+            </div>
+            <div>
+              <label for="lastName">Last Name</label>
+              <input
+                type="text"
+                id="lastName"
+                placeholder="doe"
+                autocomplete="off"
+                required
+              />
+            </div>
+          </div>
+          <div>
+            <div>
+              
+            </div>
+            <label for="email">E-mail</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="jhondoe@gmail.com"
+              autocomplete="off"
+              required
+            />
+
+            <label for="number">Mobile Number</label>
+            <input
+              type="tel"
+              id="number"
+              placeholder="0123456789"
+              inputmode="numeric"
+              autocomplete="off"
+            />
+
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" placeholder="Subject" />
+
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              placeholder="Enter your message."
+              autocomplete="off"
+              cols="25"
+              rows="6"
+            ></textarea>
+          </div>
+
+          <button id="submit--btn" class="btn--primary">Get in touch</button>
+        </form>
+        <div id="output"></div>
       </section>
     </main>
     <footer>
