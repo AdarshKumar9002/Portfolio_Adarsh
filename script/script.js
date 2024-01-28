@@ -44,7 +44,7 @@ function heroInfo(name, degination) {
   }
 }
 
-heroInfo(info.name, info.degination, info.description);
+heroInfo(info.name, info.degination);
 
 let fullName = '';
 let message = '';
