@@ -374,7 +374,7 @@ footer p {
 }
 .myEmail a,p {
   color: var(--secondyColor);
-  font-size: 2rem;
+  font-size: 1.4rem;
 }
 form {
   display: flex;
@@ -578,7 +578,9 @@ textarea {
   }
   /* CSS for Contact page */
 
-  
+  .myEmail a,p {
+  font-size: 2rem;
+}
 label {
   font-size: 1.5rem;
   /* font-weight: 500; */
